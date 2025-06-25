@@ -24,7 +24,7 @@ func NewAnalyzer(filterEngine filter.Filter) *Analyzer {
 	}
 }
 
-func (a *Analyzer) Analyze() (*Analysis, error) {
+func (a *Analyzer) Analyze(ctx context.Context) (*Analysis, error) {
 	analysis := NewAnalysis()
 
 	output.Printf("Loaded known log files for %s\n", runtime.GOOS)
@@ -35,7 +35,7 @@ func (a *Analyzer) Analyze() (*Analysis, error) {
 	for _, c := range check.GetAllChecks() {
 		wg.Add(1)
 		go func(c check.Check) {
-			results, err := a.finder.Run(context.TODO(), c.Paths())
+			results, err := a.finder.Run(ctx, c.Paths())
 			if err != nil {
 				logrus.Error(err)
 				return
