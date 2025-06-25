@@ -16,7 +16,9 @@
       "Bash(mkdir:*)",
       "Bash(go list:*)",
       "Bash(go get:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
