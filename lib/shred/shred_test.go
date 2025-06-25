@@ -43,6 +43,7 @@ func TestShredder_Write(t *testing.T) {
 			input: "testdata/fake.log",
 			wantErr: map[string]error{
 				"linux":   errors.New("file stat failed: stat testdata/fake.log: no such file or directory"),
+				"darwin":  errors.New("file stat failed: stat testdata/fake.log: no such file or directory"),
 				"windows": errors.New("file stat failed: CreateFile testdata/fake.log: The system cannot find the file specified."),
 			},
 		},
@@ -51,6 +52,7 @@ func TestShredder_Write(t *testing.T) {
 			input: "testdata/",
 			wantErr: map[string]error{
 				"linux":   errors.New("file opening failed: open testdata/: is a directory"),
+				"darwin":  errors.New("file opening failed: open testdata/: is a directory"),
 				"windows": errors.New("file opening failed: open testdata/: is a directory"),
 			},
 		},

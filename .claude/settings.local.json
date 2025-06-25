@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(go mod:*)",
+      "Bash(go build:*)",
+      "Bash(go test:*)",
+      "Bash(markdownlint:*)",
+      "Bash(grep:*)",
+      "Bash(make test:*)",
+      "Bash(make:*)",
+      "Bash(go env:*)",
+      "Bash(export PATH=$PATH:/Users/thomas/go/bin)",
+      "Bash(mockery:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(go list:*)",
+      "Bash(go get:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}
