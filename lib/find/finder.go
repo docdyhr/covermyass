@@ -9,7 +9,6 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
-	"strings"
 )
 
 type Finder interface {
@@ -47,8 +46,10 @@ func (f *finder) Run(ctx context.Context, paths []string) ([]FileInfo, error) {
 		}
 
 		var formattedPattern string
-		if strings.Split(pattern, "")[0] == string(os.PathSeparator) {
-			formattedPattern = strings.Join(strings.Split(pattern, "")[1:], "")
+		if pattern[0] == os.PathSeparator {
+			formattedPattern = pattern[1:]
+		} else {
+			formattedPattern = pattern
 		}
 
 		// TODO(sundowndev): run this in a goroutine?
