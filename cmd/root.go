@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 	"github.com/schollz/progressbar/v3"
 	"github.com/sirupsen/logrus"
@@ -52,7 +53,7 @@ covermyass --write -z -n 5
 			}
 
 			analyzer := analysis.NewAnalyzer(filterEngine)
-			a, err := analyzer.Analyze()
+			a, err := analyzer.Analyze(context.Background())
 			if err != nil {
 				return err
 			}
