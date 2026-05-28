@@ -1,3 +1,13 @@
+<div align="right">
+
+<a href="https://railway.com?referralCode=QhjuBc">
+
+  <img width="160" src="https://raw.githubusercontent.com/docdyhr/.github/main/assets/railway-corner-v2@2x.png" alt="Deploy on Railway — $20 free credits">
+
+</a>
+
+</div>
+
 [![build status](https://img.shields.io/github/actions/workflow/status/sundowndev/covermyass/build.yml)](https://github.com/sundowndev/covermyass/actions)
 [![Coverage Status](https://coveralls.io/repos/github/sundowndev/covermyass/badge.svg?branch=master)](https://coveralls.io/github/sundowndev/covermyass?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/sundowndev/covermyass/v2)](https://goreportcard.com/report/github.com/sundowndev/covermyass/v2)
