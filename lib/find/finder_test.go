@@ -43,13 +43,13 @@ func TestFinder_Run(t *testing.T) {
 	t.Run("absolute pattern", func(t *testing.T) {
 		res, err := f.Run(ctx, []string{"/abs/*.log"})
 		assert.NoError(t, err)
-		assert.ElementsMatch(t, []string{"/abs/file.log"}, pathsFromResults(res))
+		assert.ElementsMatch(t, []string{filepath.FromSlash("/abs/file.log")}, pathsFromResults(res))
 	})
 
 	t.Run("relative pattern", func(t *testing.T) {
 		res, err := f.Run(ctx, []string{"abs/sub/*.log"})
 		assert.NoError(t, err)
-		assert.ElementsMatch(t, []string{"/abs/sub/inner.log"}, pathsFromResults(res))
+		assert.ElementsMatch(t, []string{filepath.FromSlash("/abs/sub/inner.log")}, pathsFromResults(res))
 	})
 
 	t.Run("filtered path", func(t *testing.T) {

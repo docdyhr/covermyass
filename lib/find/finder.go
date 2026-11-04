@@ -46,7 +46,8 @@ func (f *finder) Run(ctx context.Context, paths []string) ([]FileInfo, error) {
 		}
 
 		var formattedPattern string
-		if pattern[0] == os.PathSeparator {
+		// Patterns may use '/' on every OS; on Windows the separator is '\\'.
+		if pattern[0] == '/' || pattern[0] == os.PathSeparator {
 			formattedPattern = pattern[1:]
 		} else {
 			formattedPattern = pattern
