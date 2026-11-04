@@ -16,10 +16,10 @@ jobs:
         os: [ ubuntu-latest, windows-latest ]
     steps:
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v7
         with:
           go-version-file: go.mod
         id: go
@@ -58,6 +58,8 @@ jobs:
         run: gotestsum --format testname -- -mod=readonly -race ./...
 
       - name: Report code coverage
+        # coveralls.io may not have this fork enabled; a 422 there must not fail the build
+        continue-on-error: true
         if: matrix.os == 'ubuntu-latest'
         env:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
